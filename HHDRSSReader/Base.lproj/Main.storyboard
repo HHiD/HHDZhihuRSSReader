@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DuR-jM-ODU">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+    </dependencies>
+    <scenes>
+        <!--Menu Collection View Controller-->
+        <scene sceneID="VPe-F2-4gc">
+            <objects>
+                <collectionViewController providesPresentationContextTransitionStyle="YES" id="DuR-jM-ODU" customClass="MenuCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XXF-bX-Jyp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="YwB-2P-3lb" customClass="MenuFlowLayout">
+                            <size key="itemSize" width="588" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myCell" id="2LO-PD-HRN" customClass="MenuCollectionViewCell">
+                                <rect key="frame" x="6" y="0.0" width="588" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="588" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="158-nX-hAK" kind="show" identifier="Push" id="ghN-DU-Qz3"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="DuR-jM-ODU" id="pb0-kl-8Oq"/>
+                            <outlet property="delegate" destination="DuR-jM-ODU" id="ke1-tg-Kvd"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="SBR-Pi-BHE"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vw3-h0-1kv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="-291"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="G7P-s1-jbs">
+            <objects>
+                <viewController id="158-nX-hAK" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1fN-Yh-F8H"/>
+                        <viewControllerLayoutGuide type="bottom" id="xJ8-m2-cHU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DBy-Zr-zzb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZJ-rs-xEd">
+                                <rect key="frame" x="0.0" y="40" width="600" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="BZJ-rs-xEd" firstAttribute="width" secondItem="DBy-Zr-zzb" secondAttribute="width" id="975-WL-kTQ"/>
+                            <constraint firstItem="BZJ-rs-xEd" firstAttribute="top" secondItem="1fN-Yh-F8H" secondAttribute="bottom" constant="20" id="CHn-lm-Jgf">
+                                <variation key="heightClass=compact" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="xJ8-m2-cHU" firstAttribute="top" secondItem="BZJ-rs-xEd" secondAttribute="bottom" id="KfN-N9-6eO"/>
+                            <constraint firstItem="BZJ-rs-xEd" firstAttribute="top" secondItem="1fN-Yh-F8H" secondAttribute="bottom" constant="20" id="YMN-V2-47o"/>
+                            <constraint firstItem="BZJ-rs-xEd" firstAttribute="centerX" secondItem="DBy-Zr-zzb" secondAttribute="centerX" id="yxe-p8-RuK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CHn-lm-Jgf"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="CHn-lm-Jgf"/>
+                                <exclude reference="YMN-V2-47o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="_webView" destination="BZJ-rs-xEd" id="hru-54-SYz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ux8-WO-XEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2082" y="-297"/>
+        </scene>
+    </scenes>
+</document>
