@@ -1,6 +1,7 @@
 # HHDZhihuRSSReader
-Just a learning project
-
+This is my learning project.
+I will integrate the new knowlege into this program, different knowlege has different responsibility
+This is the original version.
 
 
 
